@@ -65,4 +65,4 @@ tab = xtable(pop_df, digits = 2, align = "ccc")
 print(tab, type="html")
 ```
 <br>
-- Faça o mesmo gráfico de fenótipo por genótipo e cacúle o efeito aditivo, efeito de dominância e efeito médio do alelo.
+- Faça o mesmo gráfico de fenótipo por genótipo e cacule o efeito aditivo, efeito de dominância e efeito médio do alelo.
