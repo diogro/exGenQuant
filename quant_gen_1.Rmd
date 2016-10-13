@@ -1,8 +1,16 @@
 ---
-title: "Genética quantitativa I"
+title: "Tutorial Biologia Evolutiva 2016"
 author: "Diogo Melo"
-date: "October 11, 2016"
-output: html_document
+date: "October 12, 2016"
+output:
+  html_document:
+    toc: true
+    toc_float:           
+          collapsed: false
+          smooth_scroll: false
+    number_sections: true
+    theme: flatly
+    highlight: tango
 ---
 
 ## Algumas populações
