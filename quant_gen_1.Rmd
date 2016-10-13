@@ -8,12 +8,17 @@ output:
     toc_float:           
           collapsed: false
           smooth_scroll: false
-    number_sections: true
+    number_sections: false
     theme: flatly
     highlight: tango
 ---
-
-## Algumas populações
+ <style>
+   th,td{
+     padding:2px 5px 2px 5px;
+   }
+ </style>
+ 
+# Efeitos médios, aditivos e de dominância
 
 Vamos calcular "na unha" algums parâmetros da genética quantitativa numa população pequena. 
 
@@ -32,10 +37,8 @@ pop_df = data.frame(genótipos = genotypes[pop_index], fenótipos = pop)
 tab = xtable(pop_df, digits = 2, align = "ccc")
 print(tab, type="html")
 ```
-
-##
-
-Usando esses dados, faça um gráfico da média dos fenótipos por classe genotípica.
+<br>
+- Usando esses dados, faça um gráfico da média dos fenótipos por classe genotípica.
 
 ## Algumas continhas
 
@@ -61,7 +64,5 @@ pop_df = data.frame(genótipos = genotypes[pop_index], fenótipos = pop)
 tab = xtable(pop_df, digits = 2, align = "ccc")
 print(tab, type="html")
 ```
-
-##
-
-Faça o mesmo gráfico de fenótipo por genótipo e cacule o efeito aditivo, efeito de dominância e efeito médio do alelo.
+<br>
+- Faça o mesmo gráfico de fenótipo por genótipo e cacule o efeito aditivo, efeito de dominância e efeito médio do alelo.

@@ -212,12 +212,17 @@ div.tocify {
 </div>
 
 
-<div id="algumas-populacoes" class="section level2">
-<h2><span class="header-section-number">0.1</span> Algumas populações</h2>
+<style>
+   th,td{
+     padding:2px 5px 2px 5px;
+   }
+ </style>
+<div id="efeitos-medios-aditivos-e-de-dominancia" class="section level1">
+<h1>Efeitos médios, aditivos e de dominância</h1>
 <p>Vamos calcular “na unha” algums parâmetros da genética quantitativa numa população pequena.</p>
 <p>A tabela a seguir traz os genótipos para um locus quantitativo e os fenótipos de 20 indivíduos.</p>
 <!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
-<!-- Thu Oct 13 17:52:37 2016 -->
+<!-- Thu Oct 13 17:56:40 2016 -->
 <table border="1">
 <tr>
 <th>
@@ -237,7 +242,7 @@ fenótipos
 AA
 </td>
 <td align="center">
-14.45
+14.30
 </td>
 </tr>
 <tr>
@@ -248,7 +253,7 @@ AA
 AA
 </td>
 <td align="center">
-14.33
+14.37
 </td>
 </tr>
 <tr>
@@ -259,45 +264,12 @@ AA
 AA
 </td>
 <td align="center">
-13.96
+14.14
 </td>
 </tr>
 <tr>
 <td align="center">
 4
-</td>
-<td align="center">
-AA
-</td>
-<td align="center">
-13.68
-</td>
-</tr>
-<tr>
-<td align="center">
-5
-</td>
-<td align="center">
-AA
-</td>
-<td align="center">
-13.66
-</td>
-</tr>
-<tr>
-<td align="center">
-6
-</td>
-<td align="center">
-AA
-</td>
-<td align="center">
-14.61
-</td>
-</tr>
-<tr>
-<td align="center">
-7
 </td>
 <td align="center">
 AA
@@ -308,13 +280,46 @@ AA
 </tr>
 <tr>
 <td align="center">
+5
+</td>
+<td align="center">
+AA
+</td>
+<td align="center">
+14.34
+</td>
+</tr>
+<tr>
+<td align="center">
+6
+</td>
+<td align="center">
+AA
+</td>
+<td align="center">
+14.10
+</td>
+</tr>
+<tr>
+<td align="center">
+7
+</td>
+<td align="center">
+AA
+</td>
+<td align="center">
+13.95
+</td>
+</tr>
+<tr>
+<td align="center">
 8
 </td>
 <td align="center">
 AB
 </td>
 <td align="center">
-11.97
+11.45
 </td>
 </tr>
 <tr>
@@ -325,7 +330,7 @@ AB
 AB
 </td>
 <td align="center">
-11.52
+12.40
 </td>
 </tr>
 <tr>
@@ -336,7 +341,7 @@ AB
 AB
 </td>
 <td align="center">
-11.69
+11.99
 </td>
 </tr>
 <tr>
@@ -347,7 +352,7 @@ AB
 AB
 </td>
 <td align="center">
-11.24
+12.48
 </td>
 </tr>
 <tr>
@@ -358,7 +363,7 @@ AB
 AB
 </td>
 <td align="center">
-11.89
+11.34
 </td>
 </tr>
 <tr>
@@ -369,7 +374,7 @@ AB
 AB
 </td>
 <td align="center">
-12.09
+12.00
 </td>
 </tr>
 <tr>
@@ -380,7 +385,7 @@ AB
 AB
 </td>
 <td align="center">
-11.50
+12.34
 </td>
 </tr>
 <tr>
@@ -391,7 +396,7 @@ AB
 AB
 </td>
 <td align="center">
-12.09
+11.93
 </td>
 </tr>
 <tr>
@@ -402,7 +407,7 @@ AB
 AB
 </td>
 <td align="center">
-12.68
+12.23
 </td>
 </tr>
 <tr>
@@ -413,7 +418,7 @@ AB
 BB
 </td>
 <td align="center">
-6.10
+6.58
 </td>
 </tr>
 <tr>
@@ -424,7 +429,7 @@ BB
 BB
 </td>
 <td align="center">
-6.52
+6.62
 </td>
 </tr>
 <tr>
@@ -435,7 +440,7 @@ BB
 BB
 </td>
 <td align="center">
-6.32
+6.08
 </td>
 </tr>
 <tr>
@@ -446,17 +451,13 @@ BB
 BB
 </td>
 <td align="center">
-5.11
+6.10
 </td>
 </tr>
 </table>
-</div>
-<div id="section" class="section level2">
-<h2><span class="header-section-number">0.2</span> </h2>
-<p>Usando esses dados, faça um gráfico da média dos fenótipos por classe genotípica.</p>
-</div>
+<p><br> - Usando esses dados, faça um gráfico da média dos fenótipos por classe genotípica.</p>
 <div id="algumas-continhas" class="section level2">
-<h2><span class="header-section-number">0.3</span> Algumas continhas</h2>
+<h2>Algumas continhas</h2>
 <p>Usando os mesmos dados, calcule:</p>
 <ul>
 <li>o efeito aditivo e o efeito de dominância do alelo A, represente esses efeitos no gráfico;</li>
@@ -464,10 +465,10 @@ BB
 </ul>
 </div>
 <div id="frequencias-alelicas-e-efeito-medio-de-um-alelo" class="section level2">
-<h2><span class="header-section-number">0.4</span> Frequências alélicas e efeito médio de um alelo</h2>
+<h2>Frequências alélicas e efeito médio de um alelo</h2>
 <p>Vamos agora fazer a mesma coisa para outra população</p>
 <!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
-<!-- Thu Oct 13 17:52:37 2016 -->
+<!-- Thu Oct 13 17:56:40 2016 -->
 <table border="1">
 <tr>
 <th>
@@ -487,7 +488,7 @@ fenótipos
 AA
 </td>
 <td align="center">
-8.36
+9.67
 </td>
 </tr>
 <tr>
@@ -498,7 +499,7 @@ AA
 AA
 </td>
 <td align="center">
-9.06
+9.25
 </td>
 </tr>
 <tr>
@@ -509,7 +510,7 @@ AA
 AA
 </td>
 <td align="center">
-9.16
+9.03
 </td>
 </tr>
 <tr>
@@ -520,7 +521,7 @@ AA
 AA
 </td>
 <td align="center">
-8.92
+9.56
 </td>
 </tr>
 <tr>
@@ -531,7 +532,7 @@ AA
 AA
 </td>
 <td align="center">
-8.84
+8.42
 </td>
 </tr>
 <tr>
@@ -542,7 +543,7 @@ AA
 AA
 </td>
 <td align="center">
-9.70
+9.60
 </td>
 </tr>
 <tr>
@@ -553,7 +554,7 @@ AA
 AA
 </td>
 <td align="center">
-8.47
+8.95
 </td>
 </tr>
 <tr>
@@ -564,7 +565,7 @@ AA
 AA
 </td>
 <td align="center">
-8.74
+9.97
 </td>
 </tr>
 <tr>
@@ -575,7 +576,7 @@ AA
 AA
 </td>
 <td align="center">
-8.58
+8.37
 </td>
 </tr>
 <tr>
@@ -586,7 +587,7 @@ AA
 AA
 </td>
 <td align="center">
-9.37
+9.23
 </td>
 </tr>
 <tr>
@@ -597,7 +598,7 @@ AA
 AA
 </td>
 <td align="center">
-9.04
+9.22
 </td>
 </tr>
 <tr>
@@ -608,7 +609,7 @@ AA
 AA
 </td>
 <td align="center">
-8.74
+9.45
 </td>
 </tr>
 <tr>
@@ -619,7 +620,7 @@ AA
 AA
 </td>
 <td align="center">
-9.62
+8.47
 </td>
 </tr>
 <tr>
@@ -630,7 +631,7 @@ AA
 AA
 </td>
 <td align="center">
-8.25
+8.41
 </td>
 </tr>
 <tr>
@@ -641,7 +642,7 @@ AA
 AA
 </td>
 <td align="center">
-8.89
+9.34
 </td>
 </tr>
 <tr>
@@ -652,7 +653,7 @@ AA
 AA
 </td>
 <td align="center">
-9.06
+9.11
 </td>
 </tr>
 <tr>
@@ -663,7 +664,7 @@ AA
 AA
 </td>
 <td align="center">
-8.93
+9.46
 </td>
 </tr>
 <tr>
@@ -674,7 +675,7 @@ AA
 AA
 </td>
 <td align="center">
-9.27
+9.55
 </td>
 </tr>
 <tr>
@@ -685,7 +686,7 @@ AA
 AB
 </td>
 <td align="center">
-6.21
+6.92
 </td>
 </tr>
 <tr>
@@ -696,14 +697,12 @@ AB
 BB
 </td>
 <td align="center">
-0.16
+1.78
 </td>
 </tr>
 </table>
+<p><br> - Faça o mesmo gráfico de fenótipo por genótipo e cacule o efeito aditivo, efeito de dominância e efeito médio do alelo.</p>
 </div>
-<div id="section-1" class="section level2">
-<h2><span class="header-section-number">0.5</span> </h2>
-<p>Faça o mesmo gráfico de fenótipo por genótipo e cacule o efeito aditivo, efeito de dominância e efeito médio do alelo.</p>
 </div>
 
 
