@@ -22,6 +22,8 @@ output:
 
 Vamos calcular "na unha" algums parâmetros da genética quantitativa numa população pequena. 
 
+As deduções das formulas estão [aqui](https://diogro.github.io/exGenQuant/deducoes.html).
+
 A tabela a seguir traz os genótipos para um locus quantitativo e os fenótipos de 20 indivíduos.
 
 ```{r, results="asis", echo = FALSE}
