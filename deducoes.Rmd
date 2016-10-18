@@ -1,5 +1,5 @@
 ---
-title: "Exercício Processos Evolutivos"
+title: "Genética quantitativa básica"
 author: "Diogo Melo"
 date: "October 17, 2016"
 output:
@@ -81,7 +81,7 @@ ggplot(df, aes(genótipos, fenótipos)) + geom_point() + geom_hline(yintercept =
 
 # Efeito médio de um alelo
 
-Vamos agora calcular a diferença na média dos individuos que tem o alelo A para a média da população. Como a tranmissão entre gerações é de alelos e não genótipos, essa é a quantidade mais fundamental para a semelhança entre pais e filhos e para a evolução. Para calcular o efeito médio do alelo A nessa população, vamos pensar em todas as possibilidades de de encontrarmos pelo menos um alelo A. Como essa população é bialélica, o alelo A pode estar acompanhado de outro A, ou de um B, e esses dois casos vão acontecer de acordo com as frequências alélicas. Para o caso no qual o A é acompanhado de outro A, a frequencia e p e o fenótipo é $a$. Para o caso no qual o A é acompanhado de um B, a frequencia é q e o fenótipo é $d$. Então, a média dos individuos que contem pelo menos um alelo A é de:
+Vamos agora calcular a diferença na média dos individuos que tem o alelo A para a média da população. Como a transmissão entre gerações é de alelos e não genótipos, essa é a quantidade mais fundamental para a semelhança entre pais e filhos e para a evolução. Para calcular o efeito médio do alelo A nessa população, vamos pensar em todas as possibilidades de de encontrarmos pelo menos um alelo A. Como essa população é bialélica, o alelo A pode estar acompanhado de outro A ou de um B, e esses dois casos vão acontecer de acordo com as frequências alélicas. Para o caso no qual o A é acompanhado de outro A, a frequencia é p e o fenótipo é $a$. Para o caso no qual o A é acompanhado de um B, a frequencia é q e o fenótipo é $d$. Então, a média dos individuos que contem pelo menos um alelo A é de:
 
 $$
 pa + qd
