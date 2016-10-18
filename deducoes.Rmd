@@ -98,7 +98,7 @@ $$
 = q[a + (q - p)d] = q \alpha
 $$
 
-Note que o valor entre conchetes é exatamete o efeito de substituição (\alpha). Podemos fazer a mesma conta para o alelo B, e vamos econtrar que o efeito médio do alelo B (\alpha_B) é:
+Note que o valor entre conchetes é exatamete o efeito de substituição ($\alpha$). Podemos fazer a mesma conta para o alelo B, e vamos econtrar que o efeito médio do alelo B ($\alpha_B$) é:
 
 $$
 \alpha_B = -p[a + (q - p)d] = -p \alpha
