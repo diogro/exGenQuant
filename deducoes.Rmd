@@ -1,0 +1,116 @@
+---
+title: "Genética quantitativa básica"
+author: "Diogo Melo"
+date: "October 17, 2016"
+output:
+  html_document:
+    toc: true
+    toc_float:           
+          collapsed: false
+          smooth_scroll: false
+    number_sections: false
+    theme: flatly
+    highlight: tango
+---
+ <style>
+   th,td{
+     padding:2px 5px 2px 5px;
+   }
+ </style>
+
+# Introdução
+
+Os conceitos da genética quantitativa podem ser melhor entendidos usando um caso simples, de um locus bialélico com efeito no fenótipo. Vamos supor que as frequencias dos alelos A e B são respectivamente p e q, que as frequencias genotípicas estão em equilibrio de Hardy-Weinberg, e que os fenótipos associados a cada genótipo são os seguintes:
+
+```{r, results="asis", echo = FALSE}
+library(xtable)
+genotypes = c("AA", "AB", "BB")
+phenotypes = c("a", "d", "-a")
+df = data.frame(genótipos = genotypes, fenótipos = phenotypes)
+tab = xtable(df, digits = 2, align = "ccc")
+print(tab, type="html")
+```
+
+Esse valores são medidos a partir da média dos dois homozigotos. Graficamente, a relação entre genótipos e fenótipos é a seguinte:
+
+```{r, results="asis", echo = FALSE,  warning=FALSE, message=FALSE}
+library(ggplot2)
+library(cowplot)
+genotypes = c("AA", "AB", "BB")
+phenotypes = c(1, 0.5, -1)
+df = data.frame(genótipos = factor(genotypes, levels = c("BB", "AB", "AA")), 
+                                   fenótipos = phenotypes)
+ggplot(df, aes(genótipos, fenótipos)) + geom_point(size = 2) + geom_hline(yintercept = 0) +
+  scale_y_continuous(breaks = c(1, 0.5, 0, -1), labels = c("a", "d", "0", "-a")) + 
+  annotate("text", y = 0, x = 0.7, label = "Médias dos\n dois homozigotos")
+```
+
+Os valores a e d são chamados efeito aditivos e efeito de dominância. A partir desses valores fenotípicos centralizados na média, podemos calcular a média da população ($M$). Para isso, vamos usar as frequências de Hardy-Weiberg para os genótipos. Ponderando o fenótipo correspondente pela frequência genotípica em equilibrio, a média pode ser escrita como:
+
+$$
+M = p^2 a + 2pqd + q^2 (-a) = \\
+ = (p^2 - q^2)a + 2pqd = \\
+= (p+q)(p-q)a + 2pqd = \\
+ = (p-q)a + 2pqd
+$$
+
+# Efeito de substituição
+
+Como estamos interessados em evolução das frequencias alélicas, vamos calcular o efeito médio de substituição ($\alpha$) de um alelo B por um alelo A. Ou seja, como o fenótipo muda, em média, quando ocorre uma mudança de um alelo para o outro.
+
+Existem dois cenários possiveis para a substituição de um alelo B: (1) ou o alelo que acompanha o B é outro B; o o alelo que acompanha o B é um A. A frequencia dos casos é dado apenas pelas frequências na população. Para o caso no qual o alelo B está junto com outro B, se trocarmos um alelo B pelo A, estamos indo de um genótipo BB, com fenótipo $-a$, para um genótipo AB, com fenótipo $d$. Então, a mudança no fenótipo devido à substituição é de $(a + d)$. A outra substituição possével é a de um B acompanhado por um A. Nesse caso, estamos passando de um genótipo AB para AA, e de um fenótipo $d$ para $a$. A diferença então é de $(a-d)$. Ponderando a diferença em cada caso pela frequencia alélica do alelo que não é trocado, temos que o efeito médio de subsituição é dado por:
+
+$$
+\alpha = (a + d) q + (a - d) p = a + (q - p) d
+$$ 
+
+Esse valor pode ser entendido como o coeficiente de uma regressão dos fenótipos no número de alelos A em um dado genótipo. E o quando o fenótipo muda, em média, a medida que acrescentamos um alelo A. Graficamente, para uma população com frequencias $p = 0.4$ e $q = 0.6$ e efeitos $a = 1$ e $d = 0.5$:
+
+```{r, results="asis", echo = FALSE}
+genotypes = c("AA", "AB", "BB")
+phenotypes = c(1, 0.5, -1)
+df = data.frame(genótipos = c(2, 1, 0), 
+                fenótipos = phenotypes)
+alpha = 1 + (0.6 - 0.4) * 0.5
+ggplot(df, aes(genótipos, fenótipos)) + geom_point(size = 2) + geom_hline(yintercept = 0) +
+  scale_y_continuous(breaks = c(1, 0.5, 0, -1), 
+                     labels = c("a", "d", "0", "-a"), limits = c(-1, 2*0.6*alpha)) + 
+  scale_x_continuous(breaks = c(0, 1, 2)) + labs (x = "Número de alelos A", y = "Fenótipo") +
+  geom_abline(slope = alpha, intercept = -2*0.4*alpha)
+```
+
+# Efeito médio de um alelo
+
+Vamos agora calcular a diferença na média dos individuos que tem o alelo A para a média da população. Como a transmissão entre gerações é de alelos e não genótipos, essa é a quantidade mais fundamental para a semelhança entre pais e filhos e para a evolução. Para calcular o efeito médio do alelo A nessa população, vamos pensar em todas as possibilidades de de encontrarmos pelo menos um alelo A. Como essa população é bialélica, o alelo A pode estar acompanhado de outro A ou de um B, e esses dois casos vão acontecer de acordo com as frequências alélicas. Para o caso no qual o A é acompanhado de outro A, a frequencia é p e o fenótipo é $a$. Para o caso no qual o A é acompanhado de um B, a frequencia é q e o fenótipo é $d$. Então, a média dos individuos que contem pelo menos um alelo A é de:
+
+$$
+pa + qd
+$$
+
+Mas essa é uma média abosluta, e o efeito médio do alelo A ($\alpha_A$) é a diferença entre a média da população e a média dos individuos que contém o alelo A. Vamos calcular essa diferença, lembrando que M é a média da população que calculamos anteriormente:
+
+$$
+\alpha_A = pa + qd - M = (pa + qd) - [(p-q)a + 2pqd] = \\
+= pa + qd - pa + qa - 2pqd = \\
+= qa + (q - 2pq) d = \\
+= [qa + (q - pq - pq)d] = \\
+= q[a + (1 - p - p)d] = \\
+= q[a + (q - p)d] = q \alpha
+$$
+
+Note que o valor entre conchetes é exatamete o efeito de substituição ($\alpha$). Podemos fazer a mesma conta para o alelo B, e vamos econtrar que o efeito médio do alelo B ($\alpha_B$) é:
+
+$$
+\alpha_B = -p[a + (q - p)d] = -p \alpha
+$$
+
+# Valor de acasalamento
+
+O valor de acasalamento é a soma dos efeitos médios de todos os alelos de um indivíduo.
+Então, para os nossos 3 genótipos, os valores de acasalamento são:
+
+Genótipos Valor de acasalamento  
+--------- ------------------------
+AA            $2\alpha_A = 2q\alpha$
+AB            $\alpha_A + \alpha_B = (q - p)\alpha$
+BB            $2\alpha_B = -2p\alpha$

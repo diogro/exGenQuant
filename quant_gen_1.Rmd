@@ -27,19 +27,21 @@ As deduções das formulas estão [aqui](https://diogro.github.io/exGenQuant/ded
 A tabela a seguir traz os genótipos para um locus quantitativo e os fenótipos de 20 indivíduos.
 
 ```{r, results="asis", echo = FALSE}
+set.seed(42)
 library(xtable)
 genotypes = c("AA", "AB", "BB")
-phenotypes = 4*c(1, 0.5, -1)
-p = 0.6
-q = 1 - p
+phenotypes = 4*c(1, 1.5, -1)
+p = 0.3; q = 1 - p
 N = 20
-pop_index = c(rep(1, floor(N*p^2)), rep(2, floor(N*2*p*q)), rep(3, floor(N*q^2)+1))
+pop_index = c(rep(1, floor(N*p^2)+1), rep(2, floor(N*2*p*q)), rep(3, floor(N*q^2)+1))
 pop = phenotypes[pop_index] + 10 + rnorm(N, 0, 0.5)
-pop_df = data.frame(genótipos = genotypes[pop_index], fenótipos = pop)
+pop_df = data.frame(genótipos = factor(genotypes[pop_index], levels = c("BB", "AB", "AA")), 
+                                       fenótipos = pop)
 tab = xtable(pop_df, digits = 2, align = "ccc")
 print(tab, type="html")
 ```
 <br>
+
 - Usando esses dados, faça um gráfico da média dos fenótipos por classe genotípica.
 
 ## Algumas continhas
@@ -55,16 +57,14 @@ Vamos agora fazer a mesma coisa para outra população
 
 ```{r, results="asis", echo = FALSE}
 library(xtable)
-genotypes = c("AA", "AB", "BB")
-phenotypes = 4*c(1, 0.5, -1)
-p = 0.95
-q = 1 - p
-N = 20
-pop_index = c(rep(1, floor(N*p^2)), rep(2, floor(N*2*p*q)), rep(3, floor(N*q^2)+1))
-pop = phenotypes[pop_index] + 5 + rnorm(N, 0, 0.5)
-pop_df = data.frame(genótipos = genotypes[pop_index], fenótipos = pop)
+p = 0.8; q = 1 - p
+pop_index = c(rep(1, floor(N*p^2)+1), rep(2, floor(N*2*p*q)), rep(3, floor(N*q^2)+1))
+pop = phenotypes[pop_index] + 6 + rnorm(N, 0, 0.5)
+pop_df = data.frame(genótipos = factor(genotypes[pop_index], levels = c("BB", "AB", "AA")), 
+                    fenótipos = pop)
 tab = xtable(pop_df, digits = 2, align = "ccc")
 print(tab, type="html")
 ```
 <br>
+
 - Faça o mesmo gráfico de fenótipo por genótipo e cacule o efeito aditivo, efeito de dominância e efeito médio do alelo.
