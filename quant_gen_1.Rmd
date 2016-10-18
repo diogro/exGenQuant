@@ -42,14 +42,12 @@ print(tab, type="html")
 ```
 <br>
 
-- Usando esses dados, faça um gráfico da média dos fenótipos por classe genotípica.
+Usando esses dados:
 
-## Algumas continhas
-
-Usando os mesmos dados, calcule:
-
-- o efeito aditivo e o efeito de dominância do alelo A, represente esses efeitos no gráfico;
-- o efeito médio do alelo A;
+- Faça um gráfico da média dos fenótipos por classe genotípica;
+- calcule o efeito aditivo (a) e o efeito de dominância (d) do alelo A;
+- represente esses efeitos no gráfico;
+- calcule o efeito de substituição ($\alpha$) e o efeito médio do alelo A ($\alpha_A$).
 
 ## Frequências alélicas e efeito médio de um alelo
 
