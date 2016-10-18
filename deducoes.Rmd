@@ -33,13 +33,14 @@ print(tab, type="html")
 
 Esse valores são medidos a partir da média dos dois homozigotos. Graficamente, a relação entre genótipos e fenótipos é a seguinte:
 
-```{r, results="asis", echo = FALSE}
+```{r, results="asis", echo = FALSE,  warning=FALSE, message=FALSE}
 library(ggplot2)
+library(cowplot)
 genotypes = c("AA", "AB", "BB")
 phenotypes = c(1, 0.5, -1)
 df = data.frame(genótipos = factor(genotypes, levels = c("BB", "AB", "AA")), 
                                    fenótipos = phenotypes)
-ggplot(df, aes(genótipos, fenótipos)) + geom_point() + geom_hline(yintercept = 0) + theme_bw() + 
+ggplot(df, aes(genótipos, fenótipos)) + geom_point(size = 2) + geom_hline(yintercept = 0) +
   scale_y_continuous(breaks = c(1, 0.5, 0, -1), labels = c("a", "d", "0", "-a")) + 
   annotate("text", y = 0, x = 0.7, label = "Médias dos\n dois homozigotos")
 ```
@@ -66,13 +67,12 @@ $$
 Esse valor pode ser entendido como o coeficiente de uma regressão dos fenótipos no número de alelos A em um dado genótipo. E o quando o fenótipo muda, em média, a medida que acrescentamos um alelo A. Graficamente, para uma população com frequencias $p = 0.4$ e $q = 0.6$ e efeitos $a = 1$ e $d = 0.5$:
 
 ```{r, results="asis", echo = FALSE}
-library(ggplot2)
 genotypes = c("AA", "AB", "BB")
 phenotypes = c(1, 0.5, -1)
 df = data.frame(genótipos = c(2, 1, 0), 
                 fenótipos = phenotypes)
 alpha = 1 + (0.6 - 0.4) * 0.5
-ggplot(df, aes(genótipos, fenótipos)) + geom_point() + geom_hline(yintercept = 0) + theme_bw() + 
+ggplot(df, aes(genótipos, fenótipos)) + geom_point(size = 2) + geom_hline(yintercept = 0) +
   scale_y_continuous(breaks = c(1, 0.5, 0, -1), 
                      labels = c("a", "d", "0", "-a"), limits = c(-1, 2*0.6*alpha)) + 
   scale_x_continuous(breaks = c(0, 1, 2)) + labs (x = "Número de alelos A", y = "Fenótipo") +
