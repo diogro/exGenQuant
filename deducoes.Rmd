@@ -20,7 +20,7 @@ output:
 
 # Introdução
 
-Os conceitos da genética quantitativa podem ser melhor entendidos usando um caso simples, de um locus bialélico com efeito no fenótipo. Vamos supor que as frequencias dos alelos A e B são respectivamente p e q, e que as frequencias genotípicas estão em equilibrio de Hardy-Weinberg e que os fenótipos associados a cada genótipo são os seguintes:
+Os conceitos da genética quantitativa podem ser melhor entendidos usando um caso simples, de um locus bialélico com efeito no fenótipo. Vamos supor que as frequencias dos alelos A e B são respectivamente p e q, que as frequencias genotípicas estão em equilibrio de Hardy-Weinberg, e que os fenótipos associados a cada genótipo são os seguintes:
 
 ```{r, results="asis", echo = FALSE}
 library(xtable)
