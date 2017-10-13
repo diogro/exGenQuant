@@ -11,6 +11,8 @@ output:
     number_sections: false
     theme: flatly
     highlight: tango
+editor_options: 
+  chunk_output_type: console
 ---
  <style>
    th,td{
