@@ -1,7 +1,7 @@
 ---
 title: "Genética quantitativa básica"
 author: "Diogo Melo"
-date: "October 17, 2016"
+date: "October 16, 2017"
 output:
   html_document:
     toc: true
@@ -54,7 +54,7 @@ M = p^2 a + 2pqd + q^2 (-a) = \\
  = (p-q)a + 2pqd
 $$
 
-# Efeito de substituição
+# Efeito médio de substituição
 
 Como estamos interessados em evolução das frequencias alélicas, vamos calcular o efeito médio de substituição ($\alpha$) de um alelo B por um alelo A. Ou seja, como o fenótipo muda, em média, quando ocorre uma mudança de um alelo para o outro.
 
@@ -98,7 +98,7 @@ $$
 = q[a + (q - p)d] = q \alpha
 $$
 
-Note que o valor entre conchetes é exatamete o efeito de substituição ($\alpha$). Podemos fazer a mesma conta para o alelo B, e vamos econtrar que o efeito médio do alelo B ($\alpha_B$) é:
+Note que o valor entre conchetes é exatamente o efeito médio de substituição ($\alpha$). Podemos fazer a mesma conta para o alelo B, e vamos econtrar que o efeito médio do alelo B ($\alpha_B$) é:
 
 $$
 \alpha_B = -p[a + (q - p)d] = -p \alpha
