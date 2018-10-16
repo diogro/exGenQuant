@@ -11,6 +11,8 @@ output:
     number_sections: false
     theme: flatly
     highlight: tango
+editor_options: 
+  chunk_output_type: console
 ---
  <style>
    th,td{
@@ -35,6 +37,9 @@ p = 0.3; q = 1 - p
 N = 20
 pop_index = c(rep(1, floor(N*p^2)+1), rep(2, floor(N*2*p*q)), rep(3, floor(N*q^2)+1))
 pop = phenotypes[pop_index] + 10 + rnorm(N, 0, 0.5)
+pop[pop_index==1][1] = 14*sum(pop_index==1) - sum(pop[pop_index==1][-1])
+pop[pop_index==2][1] = 16*sum(pop_index==2) - sum(pop[pop_index==2][-1])
+pop[pop_index==3][1] =  6*sum(pop_index==3) - sum(pop[pop_index==3][-1])
 pop_df = data.frame(genótipos = factor(genotypes[pop_index], levels = c("BB", "AB", "AA")), 
                                        fenótipos = pop)
 tab = xtable(pop_df, digits = 2, align = "ccc")
@@ -58,6 +63,9 @@ library(xtable)
 p = 0.8; q = 1 - p
 pop_index = c(rep(1, floor(N*p^2)+1), rep(2, floor(N*2*p*q)), rep(3, floor(N*q^2)+1))
 pop = phenotypes[pop_index] + 6 + rnorm(N, 0, 0.5)
+pop[pop_index==1][1] = 10*sum(pop_index==1) - sum(pop[pop_index==1][-1])
+pop[pop_index==2][1] = 12*sum(pop_index==2) - sum(pop[pop_index==2][-1])
+pop[pop_index==3][1] =  2*sum(pop_index==3) - sum(pop[pop_index==3][-1])
 pop_df = data.frame(genótipos = factor(genotypes[pop_index], levels = c("BB", "AB", "AA")), 
                     fenótipos = pop)
 tab = xtable(pop_df, digits = 2, align = "ccc")
